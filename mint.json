@@ -21,6 +21,9 @@
     "name": "Get Started",
     "url": "https://github.com/mintlify/starter"
   },
+  "api": {
+    "baseUrl": "https://yuh.com"
+  },
   "anchors": [
     {
       "name": "API Reference",
@@ -45,7 +48,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "pages": ["api-reference/authentication", "api-reference/openapi"]
     },
     {
       "group": "Endpoint Examples",
