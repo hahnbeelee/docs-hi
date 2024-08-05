@@ -44,7 +44,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "features"]
+      "pages": ["introduction", "features", "new-file"]
     },
     {
       "group": "API Documentation",
