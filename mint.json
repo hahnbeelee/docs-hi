@@ -17,6 +17,18 @@
       "url": "https://mintlify.com/docs"
     }
   ],
+  "tabs": [
+    {
+      "name": "API v2 Reference",
+      "openapi": "/api-reference/v2/openapi.json",
+      "url": "api-reference/v2"
+    },
+    {
+      "name": "API v1 Reference",
+      "openapi": "/api-reference/v1/openapi.json",
+      "url": "api-reference/v1"
+    }
+  ],
   "topbarCtaButton": {
     "name": "Get Started",
     "url": "https://github.com/mintlify/starter"
