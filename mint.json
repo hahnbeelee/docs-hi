@@ -20,12 +20,12 @@
   "tabs": [
     {
       "name": "API v2 Reference",
-      "openapi": "/api-reference/v2/openapi.json",
+      "openapi": "/api-reference/v2/openapi-2.json",
       "url": "api-reference/v2"
     },
     {
       "name": "API v1 Reference",
-      "openapi": "/api-reference/v1/openapi.json",
+      "openapi": "/api-reference/v1/openapi-1.json",
       "url": "api-reference/v1"
     }
   ],
