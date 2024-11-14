@@ -19,14 +19,8 @@
   ],
   "tabs": [
     {
-      "name": "API v2 Reference",
-      "openapi": "/api-reference/v2/openapi-2.json",
-      "url": "api-reference/v2"
-    },
-    {
-      "name": "API v1 Reference",
-      "openapi": "/api-reference/v1/openapi-1.json",
-      "url": "api-reference/v1"
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "topbarCtaButton": {
@@ -37,11 +31,6 @@
     "baseUrl": "https://hi.com"
   },
   "anchors": [
-    {
-      "name": "API Reference!",
-      "icon": "rectangle-terminal",
-      "url": "api-reference"
-    },
     {
       "name": "Changelog",
       "icon": "list",
@@ -69,6 +58,24 @@
         "api-reference/endpoint/create",
         "api-reference/endpoint/update",
         "api-reference/endpoint/delete"
+      ]
+    },
+    {
+      "group": "Examples",
+      "pages": ["guides/hello", "guides/building/introduction"]
+    },
+    {
+      "group": "Changelog",
+      "pages": ["changelog/january"]
+    },
+    {
+      "group": "pets",
+      "pages": [
+        "pets/list-all-pets",
+        "pets/create-a-pet",
+        "pets/info-for-a-specific-pet",
+        "trigger-an-update",
+        "get-the-status-of-an-update"
       ]
     }
   ],
