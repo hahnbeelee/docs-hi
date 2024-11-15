@@ -71,7 +71,7 @@
     {
       "group": "pets",
       "pages": [
-        "pets/list-all-pets",
+        "list-all-pets",
         "pets/create-a-pet",
         "pets/info-for-a-specific-pet",
         "trigger-an-update",
