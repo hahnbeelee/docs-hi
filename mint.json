@@ -21,6 +21,16 @@
     {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "OpenAPI",
+      "openapi": "https://api.apis.guru/v2/specs/ably.io/platform/1.1.0/openapi.json",
+      "url": "yeet"
+    },
+    {
+      "name": "Yert",
+      "openapi": "/yert.json",
+      "url": "yert"
     }
   ],
   "topbarCtaButton": {
