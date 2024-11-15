@@ -49,7 +49,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication", "api-reference/openapi"]
+      "pages": ["api-reference/authentication"]
     },
     {
       "group": "Endpoint Examples",
