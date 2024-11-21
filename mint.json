@@ -20,7 +20,13 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "url": "api-reference",
+      "openapi": "/openapi.json"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference2",
+      "openapi": "/openapi.yaml"
     }
   ],
   "topbarCtaButton": {
@@ -46,19 +52,6 @@
     {
       "group": "Home",
       "pages": ["introduction", "features", "new-file"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
     },
     {
       "group": "Examples",

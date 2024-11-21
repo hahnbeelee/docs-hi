@@ -1,58 +1,62 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0.1",
   "info":
     {
+      "title": "OpenAPI Plant Store",
+      "description":
+        "A sample API that uses a plant store as an example to demonstrate
+        features in the OpenAPI specification",
+      "license": { "name": "MIT" },
       "version": "1.0.0",
-      "title": "Swagger Petstore",
-      "license":
-        { "name": "MIT", "url": "https://opensource.org/licenses/MIT" },
     },
-  "servers": [{ "url": "http://petstore.swagger.io/v1" }],
+  "servers": [{ "url": "http://sandbox.mintlify.com" }],
+  "security": [{ "bearerAuth": [] }],
   "paths":
     {
-      "/pets":
+      "/plants":
         {
           "get":
             {
-              "summary": "List all pets",
-              "operationId": "listPets",
-              "tags": ["pets"],
+              "description":
+                "yeet Returns all plants from the system that the user has
+                access to",
               "parameters":
                 [
                   {
                     "name": "limit",
                     "in": "query",
-                    "description":
-                      "How many items to return at one time (max 100)",
-                    "required": false,
-                    "schema": { "type": "integer", "format": "int32" },
+                    "description": "The maximum number of results to return",
+                    "schema":
+                      {
+                        "type": "number",
+                        "minimum": 0,
+                        "exclusiveMinimum": false,
+                        "exclusiveMaximum": false,
+                        "maximum": 50,
+                      },
                   },
                 ],
               "responses":
                 {
                   "200":
                     {
-                      "description": "A paged array of pets",
-                      "headers":
-                        {
-                          "x-next":
-                            {
-                              "description":
-                                "A link to the next page of responses",
-                              "schema": { "type": "string" },
-                            },
-                        },
+                      "description": "Plant response",
                       "content":
                         {
                           "application/json":
                             {
-                              "schema": { "$ref": "#/components/schemas/Pets" },
+                              "schema":
+                                {
+                                  "type": "array",
+                                  "items":
+                                    { "$ref": "#/components/schemas/Plant" },
+                                },
                             },
                         },
                     },
-                  "default":
+                  "400":
                     {
-                      "description": "unexpected error",
+                      "description": "Unexpected error",
                       "content":
                         {
                           "application/json":
@@ -66,13 +70,34 @@
             },
           "post":
             {
-              "summary": "Create a pet",
-              "operationId": "createPets",
-              "tags": ["pets"],
+              "description": "Creates a new plant in the store",
+              "requestBody":
+                {
+                  "description": "Plant to add to the store",
+                  "content":
+                    {
+                      "application/json":
+                        {
+                          "schema": { "$ref": "#/components/schemas/NewPlant" },
+                        },
+                    },
+                  "required": true,
+                },
               "responses":
                 {
-                  "201": { "description": "Null response" },
-                  "default":
+                  "200":
+                    {
+                      "description": "plant response",
+                      "content":
+                        {
+                          "application/json":
+                            {
+                              "schema":
+                                { "$ref": "#/components/schemas/Plant" },
+                            },
+                        },
+                    },
+                  "400":
                     {
                       "description": "unexpected error",
                       "content":
@@ -87,37 +112,25 @@
                 },
             },
         },
-      "/pets/{petId}":
+      "/plants/{id}":
         {
-          "get":
+          "delete":
             {
-              "summary": "Info for a specific pet",
-              "operationId": "showPetById",
-              "tags": ["pets"],
+              "description": "Deletes a single plant based on the ID supplied",
               "parameters":
                 [
                   {
-                    "name": "petId",
+                    "name": "id",
                     "in": "path",
+                    "description": "ID of plant to delete",
                     "required": true,
-                    "description": "The id of the pet to retrieve",
-                    "schema": { "type": "string" },
+                    "schema": { "type": "integer", "format": "int64" },
                   },
                 ],
               "responses":
                 {
-                  "200":
-                    {
-                      "description": "Expected response to a valid request",
-                      "content":
-                        {
-                          "application/json":
-                            {
-                              "schema": { "$ref": "#/components/schemas/Pet" },
-                            },
-                        },
-                    },
-                  "default":
+                  "204": { "description": "Plant deleted", "content": {} },
+                  "400":
                     {
                       "description": "unexpected error",
                       "content":
@@ -137,32 +150,56 @@
     {
       "schemas":
         {
-          "Pet":
+          "Plant":
             {
+              "required": ["name"],
               "type": "object",
-              "required": ["id", "name"],
               "properties":
                 {
-                  "id": { "type": "integer", "format": "int64" },
-                  "name": { "type": "string" },
-                  "tag": { "type": "string" },
+                  "name":
+                    {
+                      "description": "The name of the plant",
+                      "type": "string",
+                    },
+                  "tag":
+                    {
+                      "description": "Tag to specify the type",
+                      "type": "string",
+                    },
                 },
             },
-          "Pets":
+          "NewPlant":
             {
-              "type": "array",
-              "items": { "$ref": "#/components/schemas/Pet" },
+              "allOf":
+                [
+                  { "$ref": "#/components/schemas/Plant" },
+                  {
+                    "required": ["id"],
+                    "type": "object",
+                    "properties":
+                      {
+                        "id":
+                          {
+                            "description": "Identification number of the plant",
+                            "type": "integer",
+                            "format": "int64",
+                          },
+                      },
+                  },
+                ],
             },
           "Error":
             {
+              "required": ["error", "message"],
               "type": "object",
-              "required": ["code", "message"],
               "properties":
                 {
-                  "code": { "type": "integer", "format": "int32" },
+                  "error": { "type": "integer", "format": "int32" },
                   "message": { "type": "string" },
                 },
             },
         },
+      "securitySchemes":
+        { "bearerAuth": { "type": "http", "scheme": "bearer" } },
     },
 }
