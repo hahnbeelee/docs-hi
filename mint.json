@@ -51,15 +51,31 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "features", "new-file"]
+      "pages": [
+        "introduction",
+        "features",
+        "new-file",
+        "anotha-one",
+        "send-a-message",
+        "new-file",
+        "FOLDER/NESTED/LEAF"
+      ]
     },
     {
       "group": "Examples",
-      "pages": ["guides/hello", "guides/building/introduction"]
+      "pages": [
+        "guides/hello",
+        "guides/building/introduction",
+        "yeettt",
+        "snippet-v1"
+      ]
     },
     {
       "group": "Changelog",
-      "pages": ["changelog/january"]
+      "pages": [
+        "changelog/january",
+        "features"
+      ]
     },
     {
       "group": "pets",
@@ -68,7 +84,9 @@
         "pets/create-a-pet",
         "pets/info-for-a-specific-pet",
         "trigger-an-update",
-        "get-the-status-of-an-update"
+        "get-the-status-of-an-update",
+        "introduction",
+        "a-page"
       ]
     }
   ],
